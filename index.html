@@ -8,13 +8,13 @@
 
     <meta name="description" content="اكتشف تطبيقاتنا المميزة: تطبيق دفتر اليوميات لإدارة المصاريف وتتبع الميزانية، وتطبيق إنشاء عروض الأسعار لتصميم عروض احترافية. حملهما مجاناً الآن!">
 
-    <link rel="icon" type="image/png" href="https://salah22ad.github.io/My-web/app-icon.png">
-    <link rel="apple-touch-icon" href="https://salah22ad.github.io/My-web/app-icon.png">
+    <link rel="icon" type="image/png" href="https://haddad-inc.github.io/info/app-icon.png">
+    <link rel="apple-touch-icon" href="https://haddad-inc.github.io/info/app-icon.png">
     <meta property="og:title" content="تطبيقاتنا | دفتر اليوميات وإنشاء عروض الأسعار" />
     <meta property="og:description" content="اكتشف تطبيقاتنا المميزة لإدارة الشؤون المالية وإنشاء عروض الأسعار الاحترافية." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://salah22ad.github.io/My-web/app-icon.png" />
-    <meta property="og:url" content="https://salah22ad.github.io/My-web/" />
+    <meta property="og:image" content="https://haddad-inc.github.io/info/app-icon.png" />
+    <meta property="og:url" content="https://haddad-inc.github.io/info/" />
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,65 +31,123 @@
             --bg-color: #f8f9fa;
             --card-bg-color: #ffffff;
             --border-color: #dee2e6;
+            --shadow-color: rgba(0, 0, 0, 0.1);
         }
+
+        /* الوضع الداكن */
+        [data-theme="dark"] {
+            --primary-color: #4dabf7;
+            --secondary-color: #339af0;
+            --quote-app-color: #51cf66;
+            --text-color: #e9ecef;
+            --light-text-color: #adb5bd;
+            --bg-color: #121212;
+            --card-bg-color: #1e1e1e;
+            --border-color: #495057;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+
         body {
             font-family: 'Tajawal', sans-serif;
             background-color: var(--bg-color);
             margin: 0;
             color: var(--text-color);
-            transition: background-color 0.3s;
+            line-height: 1.6;
+        }
+       .theme-switcher, .lang-switcher {
+            background-color:   var(--bg-color); /* rgba(255, 255, 255, 0.9); */
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Tajawal', sans-serif;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-color);
+        }
+
+        .theme-switcher:hover, .lang-switcher:hover {
+            background-color:  var(--bg-color); /* rgba(255, 255, 255, 1);*/
+            transform: translateY(-2px);
         }
         .container {
-            max-width: 1100px;
-            margin: 2rem auto;
+            max-width: 1200px;
+            margin: 0 auto;
             background-color: var(--card-bg-color);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 30px var(--shadow-color);
             border-radius: 10px;
             overflow: hidden;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
         }
+
         .header {
-            height: 20vh;
-            background-image: url('https://salah22ad.github.io/My-web/banner.jpg');
+           height: 40vh; /* زيادة الارتفاع للكمبيوتر */
+            min-height: 300px; /* حد أدنى للارتفاع */
+            max-height: 500px; /* حد أقصى للارتفاع */
+            background-image: url('https://haddad-inc.github.io/info/banner.jpg');
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+
         .header::after {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             background-color: rgba(0, 0, 0, 0.3);
         }
-        .lang-switcher {
+
+        .controls {
             position: absolute;
             top: 20px;
             right: 20px;
             z-index: 10;
-            background-color: rgba(255, 255, 255, 0.8);
-            border: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-family: 'Tajawal', sans-serif;
-            font-weight: bold;
-            transition: background-color 0.2s;
+            display: flex;
+            gap: 10px;
         }
-        .lang-switcher:hover { background-color: rgba(255, 255, 255, 1); }
-        html[dir="ltr"] .lang-switcher { right: auto; left: 20px; }
-        .main-content { padding: 30px; text-align: center; }
+
+    
+
+        html[dir="ltr"] .controls {
+            right: auto;
+            left: 20px;
+        }
+
+        .main-content {
+            padding: 30px;
+            text-align: center;
+        }
+
         .datetime-container {
-            background-color: #f1f1f1;
-            padding: 10px;
+            background-color: var(--bg-color);
+            padding: 15px;
             border-radius: 8px;
             margin-bottom: 25px;
             border: 1px solid var(--border-color);
         }
+
         #date-display, #time-display {
-            font-size: 1.1em;
             font-weight: bold;
             color: var(--primary-color);
         }
-        #time-display { letter-spacing: 2px; }
+
+        #time-display {
+            letter-spacing: 2px;
+            font-size: 1.2em;
+        }
+
         .page-title {
             font-size: 2.2em;
             margin-bottom: 25px;
@@ -103,36 +161,43 @@
             gap: 30px;
             margin-top: 30px;
         }
+
         .app-card {
             flex: 1;
             min-width: 300px;
             background-color: var(--card-bg-color);
             border-radius: 10px;
             padding: 25px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            transition: all 0.3s ease;
             text-align: center;
+            border: 1px solid var(--border-color);
         }
+
         .app-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 25px var(--shadow-color);
         }
+
         .app-card-header {
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 20px;
         }
+
         .app-card-icon {
             width: 80px;
             height: 80px;
             border-radius: 18px;
             margin-left: 15px;
         }
+
         .app-card-title {
             font-size: 1.5em;
             margin: 0;
         }
+
         .app-card-description {
             color: var(--light-text-color);
             line-height: 1.6;
@@ -149,23 +214,46 @@
             font-weight: bold;
             text-decoration: none;
             border-radius: 50px;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: all 0.3s ease;
             box-shadow: 0 4px 20px rgba(0, 123, 255, 0.35);
             margin-top: 15px;
+            position: relative;
+            overflow: hidden;
         }
+
         .download-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 7px 25px rgba(0, 123, 255, 0.45);
         }
+
         .expense-btn {
             background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
         }
+
         .quote-btn {
             background: linear-gradient(45deg, var(--quote-app-color), #1e7e34);
             box-shadow: 0 4px 20px rgba(40, 167, 69, 0.35);
         }
+
         .quote-btn:hover {
             box-shadow: 0 7px 25px rgba(40, 167, 69, 0.45);
+        }
+
+        .download-progress {
+            width: 100%;
+            height: 4px;
+            background: var(--border-color);
+            border-radius: 2px;
+            margin-top: 10px;
+            overflow: hidden;
+            display: none;
+        }
+
+        .download-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            width: 0%;
+            transition: width 0.3s ease;
         }
         
         /* تصميم أقسام الميزات */
@@ -174,64 +262,77 @@
             padding-top: 30px;
             border-top: 2px dashed var(--border-color);
         }
+
         .section-title {
             text-align: center;
             color: var(--primary-color);
             margin-bottom: 30px;
             font-size: 1.8em;
         }
+
         .quote-section-title {
             color: var(--quote-app-color);
         }
+
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
         }
+
         .feature-card {
-            background-color: #f8f9fa;
+            background-color: var(--bg-color);
             padding: 20px;
             border-radius: 8px;
             border-left: 4px solid var(--primary-color);
             text-align: start;
-            transition: transform 0.3s;
+            transition: all 0.3s ease;
         }
+
         .feature-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 5px 15px var(--shadow-color);
         }
+
         .quote-feature-card {
             border-left-color: var(--quote-app-color);
         }
+
         .feature-icon {
             font-size: 1.8em;
             color: var(--primary-color);
             margin-bottom: 15px;
         }
+
         .quote-feature-icon {
             color: var(--quote-app-color);
         }
+
         .feature-title {
             font-size: 1.2em;
             margin-bottom: 10px;
             color: var(--text-color);
         }
+
         .feature-description {
             color: var(--light-text-color);
             line-height: 1.6;
         }
         
         .contact-footer {
-            background-color: #f8f9fa;
+            background-color: var(--bg-color);
             padding: 25px;
             border-top: 1px solid var(--border-color);
             text-align: center;
             margin-top: 40px;
         }
+
         .footer-title {
             margin-top: 0;
             margin-bottom: 20px;
             color: var(--primary-color);
         }
+
         .contact-links {
             display: flex;
             justify-content: center;
@@ -239,6 +340,7 @@
             gap: 25px;
             flex-wrap: wrap;
         }
+
         .contact-link {
             display: flex;
             align-items: center;
@@ -248,27 +350,78 @@
             font-size: 1.1em;
             padding: 8px 15px;
             border-radius: 25px;
-            transition: background-color 0.3s, color 0.3s;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
         }
+
         .contact-link:hover {
             background-color: var(--primary-color);
             color: white;
+            transform: translateY(-2px);
         }
-        .contact-link i { font-size: 1.5em; }
+
+        .contact-link i {
+            font-size: 1.5em;
+        }
         
+        /* تحسينات للهواتف */
         @media (max-width: 768px) {
-            .page-title { font-size: 1.8em; }
-            .main-content { padding: 20px; }
+            .container {
+                margin: 0.5rem;
+                border-radius: 0;
+            }
+            
+            .page-title {
+                font-size: 1.8em;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+            
             .apps-container {
                 flex-direction: column;
             }
+            
             .app-card-header {
                 flex-direction: column;
                 text-align: center;
             }
+            
             .app-card-icon {
                 margin-left: 0;
                 margin-bottom: 15px;
+            }
+            
+            .controls {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .theme-switcher, .lang-switcher {
+                padding: 8px 12px;
+                font-size: 0.9em;
+            }
+            
+            .download-btn {
+                padding: 12px 30px;
+                font-size: 1.1em;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        /* تحسينات للشاشات الكبيرة */
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1300px;
             }
         }
     </style>
@@ -277,8 +430,19 @@
 </head>
 <body>
     <div class="container">
-        <button class="lang-switcher" id="lang-toggle" data-lang-ar="English" data-lang-en="العربية">English</button>
-        <header class="header"></header>
+        <header class="header">
+            <div class="controls">
+                <button class="theme-switcher" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                    <span>الوضع الداكن</span>
+                </button>
+                <button class="lang-switcher" id="lang-toggle" data-lang-ar="English" data-lang-en="العربية">
+                    <i class="fas fa-language"></i>
+                    <span>English</span>
+                </button>
+            </div>
+        </header>
+        
         <main class="main-content">
             <div class="datetime-container">
                 <div id="date-display"></div>
@@ -291,29 +455,35 @@
                 <!-- تطبيق دفتر اليوميات -->
                 <div class="app-card">
                     <div class="app-card-header">
-                        <img src="https://salah22ad.github.io/My-web/app-icon.png" alt="أيقونة تطبيق دفتر اليوميات" class="app-card-icon">
+                        <img src="https://haddad-inc.github.io/info/app-icon.png" alt="أيقونة تطبيق دفتر اليوميات" class="app-card-icon">
                         <h2 class="app-card-title" data-lang-ar="دفتر اليوميات" data-lang-en="Expense Tracker">دفتر اليوميات</h2>
                     </div>
                     <p class="app-card-description" data-lang-ar="الحل الشامل لإدارة شؤونك المالية. تتبع مصاريفك، أنشئ فواتير احترافية، واتخذ قرارات مالية أفضل بفضل التقارير الذكية والمزامنة السحابية الآمنة." data-lang-en="The comprehensive solution for managing your financial affairs. Track your expenses, create professional invoices, and make better financial decisions thanks to smart reports and secure cloud sync.">
                         الحل الشامل لإدارة شؤونك المالية. تتبع مصاريفك، أنشئ فواتير احترافية، واتخذ قرارات مالية أفضل بفضل التقارير الذكية والمزامنة السحابية الآمنة.
                     </p>
-                    <a href="https://dw.uptodown.net/dwn/1tV25U3nwlpt6DFt39i0FyiieiQT1eIvg_Bc2uY1tIzeqT84NnrPYr4sXm1y74_tXcksba0ZEoicgUzLVtXVbLHm5o2OGHqAgUxr7pOaPDykQiTdl9LLp2Cbhdirb2mW/jGeUBrhFNAd8YA5vPhExRh1Vka7F3bSZtH8rfHp800tE4wgY02lvdQK64I12u6r3hxrB9daweTLtg0NCp7NprTllXOaKzvk5kSgG2SOaObBlKUbk8aRNySjdg2rZM4xq/gwx_l9k6Y3fYDJeNjnjo5PwWmHA3-JJWdG4bByZCRlqwSLjXu5xm7g1NbAB5x2LROqNcPBMzsIdZ4MVM4foN5mDSQ2W8be-DZ5ojHS4aM5M=/smart-expense-tracker-1-0-4.apk" class="download-btn expense-btn" target="_blank" rel="noopener noreferrer" data-lang-ar="تحميل التطبيق الآن" data-lang-en="Download Now">
+                    <a href="ExpenseTracker.apk" class="download-btn expense-btn" download data-lang-ar="تحميل التطبيق الآن" data-lang-en="Download Now">
                         تحميل التطبيق الآن
                     </a>
+                    <div class="download-progress">
+                        <div class="download-progress-bar"></div>
+                    </div>
                 </div>
                 
                 <!-- تطبيق إنشاء عروض أسعار -->
                 <div class="app-card">
                     <div class="app-card-header">
-                        <img src="https://salah22ad.github.io/My-web/qoute-icon.png" alt="أيقونة تطبيق إنشاء عروض أسعار" class="app-card-icon">
+                        <img src="https://haddad-inc.github.io/info/qoute-icon.png" alt="أيقونة تطبيق إنشاء عروض أسعار" class="app-card-icon">
                         <h2 class="app-card-title" data-lang-ar="إنشاء عروض أسعار" data-lang-en="Quote Creator">إنشاء عروض أسعار</h2>
                     </div>
                     <p class="app-card-description" data-lang-ar="أداة متكاملة لإنشاء عروض أسعار احترافية بتصميم أنيق. احفظ بيانات عملائك وأصنافك، وأنشئ عروض أسعار جذابة يمكن تصديرها كملفات PDF للطباعة أو الإرسال." data-lang-en="A comprehensive tool for creating professional quotes with elegant designs. Save your clients and items data, create attractive quotes that can be exported as PDF files for printing or sending.">
                         أداة متكاملة لإنشاء عروض أسعار احترافية بتصميم أنيق. احفظ بيانات عملائك وأصنافك، وأنشئ عروض أسعار جذابة يمكن تصديرها كملفات PDF للطباعة أو الإرسال.
                     </p>
-                    <a href="https://www.4shared.com/mobile/Kqzh8P_6ge/___.html" class="download-btn quote-btn" target="_blank" rel="noopener noreferrer" data-lang-ar="تحميل التطبيق الآن" data-lang-en="Download Now">
+                    <a href="MakeQuotes.apk" class="download-btn quote-btn" download data-lang-ar="تحميل التطبيق الآن" data-lang-en="Download Now">
                         تحميل التطبيق الآن
                     </a>
+                    <div class="download-progress">
+                        <div class="download-progress-bar"></div>
+                    </div>
                 </div>
             </div>
             
@@ -497,8 +667,39 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // إدارة الوضع الداكن
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
+            const themeText = themeToggle.querySelector('span');
+            
+            // التحقق من التفضيل المحفوظ
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateThemeButton(savedTheme);
+
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeButton(newTheme);
+            });
+
+            function updateThemeButton(theme) {
+                if (theme === 'dark') {
+                    themeIcon.className = 'fas fa-sun';
+                    themeText.textContent = 'الوضع الفاتح';
+                } else {
+                    themeIcon.className = 'fas fa-moon';
+                    themeText.textContent = 'الوضع الداكن';
+                }
+            }
+
+            // إدارة الوقت والتاريخ
             const dateDisplay = document.getElementById('date-display');
             const timeDisplay = document.getElementById('time-display');
+            
             function updateTime() {
                 const now = new Date();
                 const currentLang = document.documentElement.lang;
@@ -508,29 +709,67 @@
                 const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
                 timeDisplay.textContent = now.toLocaleTimeString(dateLocale, timeOptions);
             }
+            
             setInterval(updateTime, 1000);
             updateTime();
 
+            // إدارة الترجمة
             const langToggle = document.getElementById('lang-toggle');
+            const langText = langToggle.querySelector('span');
             const translatableElements = document.querySelectorAll('[data-lang-ar]');
+            
             function switchLanguage() {
                 const currentLang = document.documentElement.lang;
                 const newLang = currentLang === 'ar' ? 'en' : 'ar';
+                
                 document.documentElement.lang = newLang;
                 document.documentElement.dir = newLang === 'ar' ? 'rtl' : 'ltr';
+                
+                // تحديث جميع العناصر القابلة للترجمة
                 translatableElements.forEach(el => {
                     const content = el.dataset[newLang === 'ar' ? 'langAr' : 'langEn'];
-                    if(el.tagName === 'A' || el.tagName === 'BUTTON' || el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'P'){
+                    if(el.tagName === 'A' || el.tagName === 'BUTTON' || el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'P' || el.tagName === 'SPAN'){
                         el.textContent = content;
                     } else {
                         el.innerHTML = content;
                     }
                 });
-                langToggle.textContent = langToggle.dataset[newLang === 'ar' ? 'langAr' : 'langEn'];
+                
+                // تحديث نص زر الترجمة
+                langText.textContent = langToggle.dataset[newLang === 'ar' ? 'langAr' : 'langEn'];
+                
+                // تحديث عنوان الصفحة
                 document.title = newLang === 'ar' ? 'تطبيقاتنا | دفتر اليوميات وإنشاء عروض الأسعار' : 'Our Apps | Expense Tracker & Quote Creator';
+                
                 updateTime();
             }
+            
             langToggle.addEventListener('click', switchLanguage);
+
+            // محاكاة تقدم التحميل
+            const downloadLinks = document.querySelectorAll('.download-btn');
+            downloadLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const progress = this.nextElementSibling;
+                    const progressBar = progress.querySelector('.download-progress-bar');
+                    
+                    progress.style.display = 'block';
+                    progressBar.style.width = '0%';
+                    
+                    let width = 0;
+                    const interval = setInterval(() => {
+                        if (width >= 100) {
+                            clearInterval(interval);
+                            setTimeout(() => {
+                                progress.style.display = 'none';
+                            }, 500);
+                        } else {
+                            width++;
+                            progressBar.style.width = width + '%';
+                        }
+                    }, 20);
+                });
+            });
         });
     </script>
 </body>
