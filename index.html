@@ -56,6 +56,7 @@
             margin: 0;
             color: var(--text-color);
             line-height: 1.6;
+            animation: fadeIn 1s ease-in;
         }
        .theme-switcher, .lang-switcher {
             background-color:   var(--bg-color); /* rgba(255, 255, 255, 0.9); */
@@ -366,6 +367,87 @@
         .contact-link i {
             font-size: 1.5em;
         }
+        
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(10px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* تأثير تمرير للعناصر */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* تأثيرات تفاعلية للأزرار */
+.download-btn {
+    position: relative;
+    overflow: hidden;
+}
+.download-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255,255,255,0.2);
+    transform: skewX(-25deg);
+    transition: 0.75s;
+}
+.download-btn:hover::before {
+    left: 125%;
+}
+
+/* الهيدر بتدرج لوني أنيق فوق الصورة */
+.header::after {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4));
+}
+
+/* ظل عميق للبطاقات */
+.app-card {
+    box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+}
+
+/* عند تمرير الفأرة */
+.app-card:hover {
+    transform: translateY(-6px) scale(1.02);
+}
+
+/* حركة أيقونات الميزات */
+.feature-icon {
+    transition: transform 0.3s ease;
+}
+.feature-card:hover .feature-icon {
+    transform: rotate(8deg) scale(1.2);
+}
+
+/* إضافة تأثير تلاشي عند تمرير الميزات */
+.feature-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+.feature-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Footer احترافي */
+.footer-brand {
+    margin-top: 25px;
+    font-size: 0.9em;
+    color: var(--light-text-color);
+}
+.footer-brand span {
+    color: var(--primary-color);
+    font-weight: bold;
+}
         
         /* تحسينات للهواتف */
         @media (max-width: 768px) {
@@ -774,6 +856,20 @@
                 });
             });
         });
+        
+function revealOnScroll() {
+  document.querySelectorAll('.reveal, .feature-card').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      el.classList.add('active', 'visible');
+    }
+  });
+}
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
     </script>
+    <footer class="contact-footer">
+  <div class="footer-brand">© <span>Haddad Inc</span> - جميع الحقوق محفوظة 2025</div>
+</footer>
 </body>
 </html>
