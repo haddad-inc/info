@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>تطبيقاتنا | دفتر اليوميات وإنشاء عروض الأسعار</title>
+    <title>تطبيقاتنا | محفظتي الذكية وإنشاء عروض الأسعار</title>
 
-    <meta name="description" content="اكتشف تطبيقاتنا المميزة: تطبيق دفتر اليوميات لإدارة المصاريف وتتبع الميزانية، وتطبيق إنشاء عروض الأسعار لتصميم عروض احترافية. حملهما مجاناً الآن!">
+    <meta name="description" content="اكتشف تطبيقاتنا المميزة: تطبيق محفظتي الذكية لإدارة المصاريف وتتبع الميزانية، وتطبيق إنشاء عروض الأسعار لتصميم عروض احترافية. حملهما مجاناً الآن!">
 
     <link rel="icon" type="image/png" href="https://haddad-inc.github.io/info/app-icon.png">
     <link rel="apple-touch-icon" href="https://haddad-inc.github.io/info/app-icon.png">
-    <meta property="og:title" content="تطبيقاتنا | دفتر اليوميات وإنشاء عروض الأسعار" />
+    <meta property="og:title" content="تطبيقاتنا | محفظتي الذكية وإنشاء عروض الأسعار" />
     <meta property="og:description" content="اكتشف تطبيقاتنا المميزة لإدارة الشؤون المالية وإنشاء عروض الأسعار الاحترافية." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://haddad-inc.github.io/info/app-icon.png" />
@@ -56,7 +56,6 @@
             margin: 0;
             color: var(--text-color);
             line-height: 1.6;
-            animation: fadeIn 1s ease-in;
         }
        .theme-switcher, .lang-switcher {
             background-color:   var(--bg-color); /* rgba(255, 255, 255, 0.9); */
@@ -368,87 +367,6 @@
             font-size: 1.5em;
         }
         
-@keyframes fadeIn {
-    from {opacity: 0; transform: translateY(10px);}
-    to {opacity: 1; transform: translateY(0);}
-}
-
-/* تأثير تمرير للعناصر */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
-}
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* تأثيرات تفاعلية للأزرار */
-.download-btn {
-    position: relative;
-    overflow: hidden;
-}
-.download-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -75%;
-    width: 50%;
-    height: 100%;
-    background: rgba(255,255,255,0.2);
-    transform: skewX(-25deg);
-    transition: 0.75s;
-}
-.download-btn:hover::before {
-    left: 125%;
-}
-
-/* الهيدر بتدرج لوني أنيق فوق الصورة */
-.header::after {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4));
-}
-
-/* ظل عميق للبطاقات */
-.app-card {
-    box-shadow: 0 5px 20px rgba(0,0,0,0.12);
-}
-
-/* عند تمرير الفأرة */
-.app-card:hover {
-    transform: translateY(-6px) scale(1.02);
-}
-
-/* حركة أيقونات الميزات */
-.feature-icon {
-    transition: transform 0.3s ease;
-}
-.feature-card:hover .feature-icon {
-    transform: rotate(8deg) scale(1.2);
-}
-
-/* إضافة تأثير تلاشي عند تمرير الميزات */
-.feature-card {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.8s ease;
-}
-.feature-card.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Footer احترافي */
-.footer-brand {
-    margin-top: 25px;
-    font-size: 0.9em;
-    color: var(--light-text-color);
-}
-.footer-brand span {
-    color: var(--primary-color);
-    font-weight: bold;
-}
-        
         /* تحسينات للهواتف */
         @media (max-width: 768px) {
             .container {
@@ -537,16 +455,16 @@
             <h1 class="page-title" data-lang-ar="تطبيقاتنا المميزة" data-lang-en="Our Premium Apps">تطبيقاتنا المميزة</h1>
             
             <div class="apps-container">
-                <!-- تطبيق دفتر اليوميات -->
+                <!-- تطبيق محفظتي الذكية -->
                 <div class="app-card">
                     <div class="app-card-header">
-                        <img src="https://haddad-inc.github.io/info/app-icon.png" alt="أيقونة تطبيق دفتر اليوميات" class="app-card-icon">
-                        <h2 class="app-card-title" data-lang-ar="دفتر اليوميات" data-lang-en="Expense Tracker">دفتر اليوميات</h2>
+                        <img src="https://haddad-inc.github.io/info/app-icon.png" alt="أيقونة تطبيق محفظتي الذكية" class="app-card-icon">
+                        <h2 class="app-card-title" data-lang-ar="محفظتي الذكية" data-lang-en="My Smart Wallet">محفظتي الذكية</h2>
                     </div>
                     <p class="app-card-description" data-lang-ar="الحل الشامل لإدارة شؤونك المالية. تتبع مصاريفك، أنشئ فواتير احترافية، واتخذ قرارات مالية أفضل بفضل التقارير الذكية والمزامنة السحابية الآمنة." data-lang-en="The comprehensive solution for managing your financial affairs. Track your expenses, create professional invoices, and make better financial decisions thanks to smart reports and secure cloud sync.">
                         الحل الشامل لإدارة شؤونك المالية. تتبع مصاريفك، أنشئ فواتير احترافية، واتخذ قرارات مالية أفضل بفضل التقارير الذكية والمزامنة السحابية الآمنة.
                     </p>
-                    <a href="ExpenseTracker.apk" class="download-btn expense-btn" download data-lang-ar="تحميل التطبيق الآن" data-lang-en="Download Now">
+                    <a href="MySmartWallet.apk" class="download-btn expense-btn" download data-lang-ar="تحميل التطبيق الآن" data-lang-en="Download Now">
                         تحميل التطبيق الآن
                     </a>
                     <div class="download-progress">
@@ -572,9 +490,9 @@
                 </div>
             </div>
             
-            <!-- قسم ميزات تطبيق دفتر اليوميات -->
+            <!-- قسم ميزات تطبيق محفظتي الذكية -->
             <section class="features-section">
-                <h2 class="section-title" data-lang-ar="مميزات تطبيق دفتر اليوميات" data-lang-en="Features of Expense Tracker">مميزات تطبيق دفتر اليوميات</h2>
+                <h2 class="section-title" data-lang-ar="مميزات تطبيق محفظتي الذكية" data-lang-en="Features of My Smart Wallet">مميزات تطبيق محفظتي الذكية</h2>
                 <div class="features-grid">
                     <div class="feature-card">
                         <div class="feature-icon">
@@ -824,7 +742,7 @@
                 langText.textContent = langToggle.dataset[newLang === 'ar' ? 'langAr' : 'langEn'];
                 
                 // تحديث عنوان الصفحة
-                document.title = newLang === 'ar' ? 'تطبيقاتنا | دفتر اليوميات وإنشاء عروض الأسعار' : 'Our Apps | Expense Tracker & Quote Creator';
+                document.title = newLang === 'ar' ? 'تطبيقاتنا | محفظتي الذكية وإنشاء عروض الأسعار' : 'Our Apps | My Smart Wallet & Quote Creator';
                 
                 updateTime();
             }
@@ -856,20 +774,6 @@
                 });
             });
         });
-        
-function revealOnScroll() {
-  document.querySelectorAll('.reveal, .feature-card').forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      el.classList.add('active', 'visible');
-    }
-  });
-}
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
     </script>
-    <footer class="contact-footer">
-  <div class="footer-brand">© <span>Haddad Inc</span> - جميع الحقوق محفوظة 2025</div>
-</footer>
 </body>
 </html>
